@@ -25,5 +25,15 @@ namespace WebApi.Controllers
             }
             return BadRequest(result.Message);
         }
+        [HttpGet("GetAll")]
+        public IActionResult GetAll()
+        {
+            var result = _productService.GetAll();
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result);
+        }
     }
 }
