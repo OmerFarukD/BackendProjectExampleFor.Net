@@ -2,6 +2,7 @@
 using Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 
 namespace WebApi.Controllers
 {
@@ -29,6 +30,16 @@ namespace WebApi.Controllers
         public IActionResult GetAll()
         {
             var result = _productService.GetAll();
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result);
+        }
+        [HttpGet("GetByCategory")]
+        public IActionResult GetByCategory(int categoryId)
+        {
+            var result = _productService.GetAllByCategoryId(categoryId);
             if (!result.Success)
             {
                 return BadRequest(result.Message);

@@ -16,7 +16,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p=>p.ProductName).MinimumLength(2);
             RuleFor(p => p.UnitPrice).NotEmpty();
             RuleFor(p => p.UnitPrice).GreaterThan(0); // 0 dan büyük olacak
-            RuleFor(p => p.UnitPrice).GreaterThanOrEqualTo(10).When(p => p.CategoryId == 1);//kategori id si 1 olanın
+         //   RuleFor(p => p.UnitPrice).GreaterThanOrEqualTo(10).When(p => p.CategoryId == 1);//kategori id si 1 olanın
                                                                                              //değeri minimum 10 olabilir                                                                               
             // RuleFor(p=>p.ProductName).Must(StartsWithA); prouctName A ile başlamalıdır.
             // WithMessage(); ile istenilen mesaj verilebilir.
